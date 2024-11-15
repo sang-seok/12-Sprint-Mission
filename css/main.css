@@ -141,6 +141,9 @@ p.title {
 #section04 {
   padding: 138px 0;
 }
+#section04 {
+  padding: 138px 0;
+}
 
 @media (max-width: 1199px) {
 
@@ -164,6 +167,23 @@ p.title {
 }
 
 /* 공통-헤더 */
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background-color: #fff;
+  z-index: 99;
+}
+
+#header .header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 #header {
   position: fixed;
   top: 0;
@@ -292,6 +312,86 @@ p.title {
   }
 
 }
+
+/* 공통-푸터 */
+#footer {
+  padding: 33px 0 0;
+  height: 160px;
+  background-color: #111827;
+}
+
+#footer .footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#footer .text {
+  display: block;
+  color: #9CA3AF;
+}
+
+#footer .footerLink {
+  display: flex;
+  align-items: center;
+  gap: 0 30px;
+}
+
+#footer .footerLink li a {
+  display: block;
+  color: #E5E7EB;
+}
+
+#footer .text,
+#footer .footerLink,
+#footer .snsLink {
+  flex-shrink: 0;
+}
+
+#footer .text,
+#footer .snsLink {
+  width: 116px;
+}
+
+#footer .snsLink {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0 13px;
+}
+
+#footer .snsLink li a {
+  display: block;
+}
+
+#footer .snsLink li a.faceBook {
+  width: 18px;
+  height: 18px;
+  background: url(../images/facebook_icon.svg)no-repeat center;
+  background-size: cover;
+}
+
+#footer .snsLink li a.twitter {
+  width: 19px;
+  height: 15px;
+  background: url(../images/twitter_icon.svg)no-repeat center;
+  background-size: cover;
+}
+
+#footer .snsLink li a.youtube {
+  width: 20px;
+  height: 13px;
+  background: url(../images/youtube_icon.svg)no-repeat center;
+  background-size: cover;
+}
+
+#footer .snsLink li a.insta {
+  width: 17px;
+  height: 17px;
+  background: url(../images/insta_icon.svg)no-repeat center;
+  background-size: cover;
+}
+
 
 /* 영역1 */
 #section01 {
@@ -430,6 +530,14 @@ p.title {
 }
 
 /* 영역3 */
+#section03 .infoBox {
+  flex-direction: row-reverse;
+}
+
+#section03 .infoBox .textBox {
+  padding: 0 64px 0 48px;
+  text-align: right;
+}
 #section03 .infoBox {
   flex-direction: row-reverse;
 }
