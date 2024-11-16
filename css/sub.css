@@ -13,6 +13,17 @@
   --gray01: #F3F4F6;
   --blue: #3692FF;
   --white: #ffffff;
+  --red: #F74747
+}
+
+/* 에러메세지 */
+.errorText {
+  display: none;
+  margin: 8px 0 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--red);
 }
 
 /* 로그인 */
@@ -57,6 +68,22 @@
   line-height: 1.4;
 }
 
+.loginBox form .inputBox.error {
+  margin-bottom: 18px;
+}
+
+.loginBox form .inputBox.error input {
+  border: 1px solid var(--red);
+}
+
+.loginBox form .inputBox.error input:focus {
+  border: 1px solid var(--red);
+}
+
+.loginBox form .inputBox.error .errorText {
+  display: block;
+}
+
 .loginBox form .inputBox input {
   width: 100%;
   padding: 0 0 0 24px;
@@ -91,14 +118,20 @@
 .loginBox form .loginBtn {
   margin-bottom: 24px;
   display: block;
+  background-color: var(--blue);
+  color: var(--white);
   width: 100%;
   height: 56px;
   line-height: 56px;
-  background-color: var(--gray02);
-  color: var(--white);
   font-size: 20px;
   font-weight: 600;
   border-radius: 40px;
+}
+
+.loginBox form .loginBtn:disabled {
+  background-color: var(--gray02);
+  color: var(--white);
+  cursor: auto;
 }
 
 .loginBox .snsLinkBox {
@@ -143,7 +176,8 @@
 
 /* 로그인-포커스 */
 .loginBox form .inputBox input:focus {
-  outline-color: var(--blue);
+  outline: none;
+  border: 1px solid var(--blue);
 }
 
 @media (max-width: 767px) {
