@@ -1,0 +1,160 @@
+#wrap,
+#main {
+  height: 100%;
+}
+
+#main {
+  padding: 100px 0;
+}
+
+:root {
+  --gray03: #1F2937;
+  --gray02: #9CA3AF;
+  --gray01: #F3F4F6;
+  --blue: #3692FF;
+  --white: #ffffff;
+}
+
+/* 로그인 */
+.loginWrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.loginBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 640px;
+  width: 100%;
+  margin: auto;
+}
+
+.loginBox h1 {
+  margin-bottom: 40px;
+}
+
+.loginBox h1 a,
+.loginBox h1 a img {
+  display: block;
+}
+
+.loginBox h1 a img {
+  margin: 0 auto;
+}
+
+.loginBox form .inputBox {
+  margin-bottom: 24px;
+}
+
+.loginBox form .inputBox label {
+  margin-bottom: 16px;
+  display: block;
+  font-size: 18px;
+  color: var(--gray03);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.loginBox form .inputBox input {
+  width: 100%;
+  padding: 0 0 0 24px;
+  height: 56px;
+  background-color: var(--gray01);
+  border-radius: 12px;
+}
+
+.loginBox form .inputBox .box {
+  position: relative;
+}
+
+.loginBox form .inputBox .pwToggleBtn {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 24px;
+  background: url(../images/pwbtn_icon.svg)no-repeat center;
+}
+
+.loginBox form .inputBox .pwToggleBtn.hidden {
+  background: url(../images/pwbtn_hidden_icon.svg)no-repeat center;
+}
+
+.loginBox form .inputBox input::placeholder {
+  color: var(--gray02);
+  font-size: 16px;
+}
+
+.loginBox form .loginBtn {
+  margin-bottom: 24px;
+  display: block;
+  width: 100%;
+  height: 56px;
+  line-height: 56px;
+  background-color: var(--gray02);
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 40px;
+}
+
+.loginBox .snsLinkBox {
+  margin-bottom: 24px;
+  padding: 0 23px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+  background-color: #E6F2FF;
+  border-radius: 8px;
+}
+
+.loginBox .snsLinkBox span {
+  padding-top: 3.5px;
+  color: var(--gray03);
+  font-weight: 500;
+}
+
+.loginBox .snsLinkBox .snsLink {
+  display: flex;
+  gap: 0 16px;
+}
+
+.loginBox .snsLinkBox .snsLink li a,
+.loginBox .snsLinkBox .snsLink li a img {
+  display: block;
+}
+
+.loginBox .infoLink {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray03);
+  line-height: 1.7;
+  text-align: center;
+}
+
+.loginBox .infoLink a {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+/* 로그인-포커스 */
+.loginBox form .inputBox input:focus {
+  outline-color: var(--blue);
+}
+
+@media (max-width: 767px) {
+
+  .loginBox {
+    max-width: 432px;
+    padding: 0 16px;
+  }
+
+  .loginBox h1 a img {
+    width: 200px;
+  }
+
+}
