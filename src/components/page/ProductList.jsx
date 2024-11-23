@@ -63,12 +63,14 @@ export default function ProductList() {
     setProductSearch(e.target.value);
   };
 
+  /*
   const toggleSelect = function (e) {
     e.preventDefault();
     setSelectView(!selectView);
 
   };
-
+  */
+ 
   return (
     <>
       <Header />
