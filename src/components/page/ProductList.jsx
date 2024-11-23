@@ -184,7 +184,7 @@ export default function ProductList() {
                       </Link>
                     </div>
 
-                    <div className="selectBox">
+                    {/* <div className="selectBox">
                       <a href="#" className={`select ${selectView ? "active" : ""}`} onClick={toggleSelect}>
                         최신순
                       </a>
@@ -200,7 +200,7 @@ export default function ProductList() {
                           </a>
                         </li>
                       </ul>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
