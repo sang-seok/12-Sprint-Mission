@@ -10,7 +10,7 @@ export default function ProductList() {
   const [bestItem, setBestItem] = useState([]);
   const [productSearch, setProductSearch] = useState('');
   const [filterItem, setFilterItem] = useState([]);
-  const [selectView, setSelectView] = useState(false);
+  // const [selectView, setSelectView] = useState(false);
   const noImage = 'https://via.placeholder.com/222?text=No+Image';
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function ProductList() {
 
   };
   */
- 
+
   return (
     <>
       <Header />
