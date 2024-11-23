@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
 
   return (
@@ -11,37 +13,37 @@ export default function Footer() {
 
           <ul class="footerLink">
             <li>
-              <a href="/privacy.html">
+              <Link to={"/privacy"}>
                 Privacy Policy
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/faq">
+              <Link to={"/faq"}>
                 FAQ
-              </a>
+              </Link>
             </li>
           </ul>
 
           <ul class="snsLink">
             <li>
-              <a href="https://www.facebook.com/" class="faceBook" target="_blank" title="새 창 열기">
+              <Link to={"https://www.facebook.com/"} class="faceBook">
                 <span class="blind">페이스북</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="https://x.com/" class="twitter" target="_blank" title="새 창 열기">
+              <Link to={"https://x.com/"} class="twitter">
                 <span class="blind">트위터</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="https://www.youtube.com/" class="youtube" target="_blank" title="새 창 열기">
+              <Link to={"https://www.youtube.com/"} class="youtube">
                 <span class="blind">유튜브</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="https://www.instagram.com/" class="insta" target="_blank" title="새 창 열기">
+              <Link to={"https://www.instagram.com/"} class="insta">
                 <span class="blind">유튜브</span>
-              </a>
+              </Link>
             </li>
           </ul>
 
