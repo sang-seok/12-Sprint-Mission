@@ -10,20 +10,26 @@ export default function ProductList() {
   const [bestItem, setBestItem] = useState([]);
   const [productSearch, setProductSearch] = useState('');
   const [filterItem, setFilterItem] = useState([]);
-  // const [selectView, setSelectView] = useState(false);
+  const [selectView, setSelectView] = useState(false);
+  const [sortOrder, setSortOrder] = useState(false);
   const noImage = 'https://via.placeholder.com/222?text=No+Image';
 
   useEffect(() => {
 
     const allItem = async function () {
+      try {
+        let allItems = [];
+        const totalPages = Math.ceil(175 / 10);
 
-      await axios.get('https://panda-market-api.vercel.app/products')
-        .then((response) => {
-          setItem(response.data.list)
-        })
-        .catch((error) => {
-          console.log(error);
-        })
+        for (let page = 1; page <= totalPages; page++) {
+          const response = await axios.get(`https://panda-market-api.vercel.app/products?page=${page}&limit=10`);
+          allItems = allItems.concat(response.data.list);
+        }
+        setItem(allItems)
+
+      } catch (error) {
+        console.log(error);
+      }
 
     };
 
@@ -59,17 +65,34 @@ export default function ProductList() {
     setFilterItem(filter);
   }, [productSearch, item]);
 
+  const sortItems = function (items) {
+    if (!Array.isArray(items)) return [];
+    if (sortOrder === 'latest') {
+
+      return items.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 10);
+
+    } else if (sortOrder === 'like') {
+
+      return items.sort((a, b) => b.favoriteCount - a.favoriteCount).slice(0, 10);
+
+    }
+    return items;
+  }
+
   const getProductData = function (e) {
     setProductSearch(e.target.value);
   };
 
-  /*
   const toggleSelect = function (e) {
     e.preventDefault();
     setSelectView(!selectView);
-
   };
-  */
+
+  const handelSortChange = function (e, order) {
+    e.preventDefault();
+    setSortOrder(order);
+    setSelectView(false);
+  }
 
   return (
     <>
@@ -132,7 +155,7 @@ export default function ProductList() {
                           검색된 상품이 없습니다.
                         </p>
                       ) : (
-                        filterItem.map((data, i) => {
+                        sortItems(filterItem).map((data, i) => {
                           return (
                             <li key={i}>
                               <Link to={`${data.id}`}>
@@ -186,23 +209,23 @@ export default function ProductList() {
                       </Link>
                     </div>
 
-                    {/* <div className="selectBox">
+                    <div className="selectBox">
                       <a href="#" className={`select ${selectView ? "active" : ""}`} onClick={toggleSelect}>
-                        최신순
+                        {sortOrder === 'latest' ? "최신순" : "좋아요순"}
                       </a>
                       <ul className="viewList">
                         <li>
-                          <a href="#">
+                          <a href="#" onClick={(e) => handelSortChange(e, 'latest')}>
                             최신순
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="#" onClick={(e) => handelSortChange(e, 'like')}>
                             좋아요순
                           </a>
                         </li>
                       </ul>
-                    </div> */}
+                    </div>
                   </div>
                 </div>
               </div>
