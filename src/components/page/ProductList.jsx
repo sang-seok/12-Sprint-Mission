@@ -12,6 +12,7 @@ export default function ProductList() {
   const [filterItem, setFilterItem] = useState([]);
   const [selectView, setSelectView] = useState(false);
   const [sortOrder, setSortOrder] = useState(false);
+  const [loading, setLoading] = useState(true);
   const noImage = 'https://via.placeholder.com/222?text=No+Image';
 
   useEffect(() => {
@@ -26,9 +27,10 @@ export default function ProductList() {
           allItems = allItems.concat(response.data.list);
         }
         setItem(allItems)
-
+        setLoading(false);
       } catch (error) {
         console.log(error);
+        setLoading(false);
       }
 
     };
@@ -47,9 +49,10 @@ export default function ProductList() {
         const likeItem = sortedItem.slice(0, 4);
 
         setBestItem(likeItem);
-
+        setLoading(false);
       } catch (error) {
         console.log(error);
+        setLoading(false);
       }
     };
 
@@ -101,135 +104,147 @@ export default function ProductList() {
         <div className="contentBox">
           <div className="itemsBox">
 
-            <div className="productBox">
-              <div className="container">
-                <div className="product">
-                  <h3>
-                    베스트 상품
-                  </h3>
-                  <ul className="cardList bestCardBox">
-                    {
-                      bestItem.map((data, i) => {
-                        return (
-                          <li key={i}>
-                            <Link to={`${data.id}`}>
-                              <div className="imgBox">
-                                <img src={data.images.length > 0 ? data.images : noImage} alt={data.name} />
-                              </div>
 
-                              <div className="textBox">
-                                <h4>
-                                  {data.name}
-                                </h4>
-                                <p className="price">
-                                  {data.price}
-                                </p>
-                              </div>
+            {loading ? (
 
-                              <div className="likeBox">
-                                <span>
-                                  {data.favoriteCount}
-                                </span>
-                              </div>
-                            </Link>
-                          </li>
-                        )
-                      })
-                    }
-                  </ul>
-                </div>
-              </div>
-            </div>
+              <h1 className="loadingText">로딩중입니다.</h1>
 
-            <div className="productBox">
-              <div className="container">
-                <div className="product">
-                  <h3>
-                    전체 상품
-                  </h3>
+            ) : (
 
-                  <ul className="cardList allCardBox">
-                    {
-                      filterItem.length === 0 ? (
-                        <p>
-                          검색된 상품이 없습니다.
-                        </p>
-                      ) : (
-                        sortItems(filterItem).map((data, i) => {
-                          return (
-                            <li key={i}>
-                              <Link to={`${data.id}`}>
-                                <div className="imgBox">
-                                  <img src={data.images.length > 0 ? data.images : noImage} alt={data.name} />
-                                </div>
+              <>
+                <div className="productBox">
+                  <div className="container">
+                    <div className="product">
+                      <h3>
+                        베스트 상품
+                      </h3>
+                      <ul className="cardList bestCardBox">
+                        {
+                          bestItem.map((data, i) => {
+                            return (
+                              <li key={i}>
+                                <Link to={`${data.id}`}>
+                                  <div className="imgBox">
+                                    <img src={data.images.length > 0 ? data.images : noImage} alt={data.name} />
+                                  </div>
 
-                                <div className="textBox">
-                                  <h4>
-                                    {data.name}
-                                  </h4>
-                                  <p className="price">
-                                    {data.price}
-                                  </p>
-                                </div>
+                                  <div className="textBox">
+                                    <h4>
+                                      {data.name}
+                                    </h4>
+                                    <p className="price">
+                                      {data.price}
+                                    </p>
+                                  </div>
 
-                                <div className="likeBox">
-                                  <span>
-                                    {data.favoriteCount}
-                                  </span>
-                                </div>
-                              </Link>
-                            </li>
-                          )
-                        })
-                      )
-                    }
-                  </ul>
-                  <div className="searchWrap">
-                    <div className="searchBox">
-                      <div className="searchBtnBox">
-                        <button className="searchBtn">
-                          <span className="blind">검색</span>
-                        </button>
-                      </div>
-                      <label htmlFor="search" className="blind">
-                        검색상품 입력
-                      </label>
-                      <input
-                        value={productSearch}
-                        onChange={getProductData}
-                        id="search"
-                        type="text"
-                        placeholder="검색할 상품을 입력해주세요"
-                      />
-                    </div>
-
-                    <div className="btnBox">
-                      <Link to={'/additem'} className="addBtn">
-                        상품 등록하기
-                      </Link>
-                    </div>
-
-                    <div className="selectBox">
-                      <Link className={`select ${selectView ? "active" : ""}`} onClick={toggleSelect}>
-                        {sortOrder === 'latest' ? "최신순" : "좋아요순"}
-                      </Link>
-                      <ul className="viewList">
-                        <li>
-                          <Link onClick={(e) => handelSortChange(e, 'latest')}>
-                            최신순
-                          </Link>
-                        </li>
-                        <li>
-                          <Link onClick={(e) => handelSortChange(e, 'like')}>
-                            좋아요순
-                          </Link>
-                        </li>
+                                  <div className="likeBox">
+                                    <span>
+                                      {data.favoriteCount}
+                                    </span>
+                                  </div>
+                                </Link>
+                              </li>
+                            )
+                          })
+                        }
                       </ul>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+
+                <div className="productBox">
+                  <div className="container">
+                    <div className="product">
+                      <h3>
+                        전체 상품
+                      </h3>
+
+                      <ul className="cardList allCardBox">
+                        {
+                          filterItem.length === 0 ? (
+                            <p>
+                              검색된 상품이 없습니다.
+                            </p>
+                          ) : (
+                            sortItems(filterItem).slice(0, 10).map((data, i) => {
+                              return (
+                                <li key={i}>
+                                  <Link to={`${data.id}`}>
+                                    <div className="imgBox">
+                                      <img src={data.images.length > 0 ? data.images : noImage} alt={data.name} />
+                                    </div>
+
+                                    <div className="textBox">
+                                      <h4>
+                                        {data.name}
+                                      </h4>
+                                      <p className="price">
+                                        {data.price}
+                                      </p>
+                                    </div>
+
+                                    <div className="likeBox">
+                                      <span>
+                                        {data.favoriteCount}
+                                      </span>
+                                    </div>
+                                  </Link>
+                                </li>
+                              )
+                            })
+                          )
+                        }
+                      </ul>
+                      <div className="searchWrap">
+                        <div className="searchBox">
+                          <div className="searchBtnBox">
+                            <button className="searchBtn">
+                              <span className="blind">검색</span>
+                            </button>
+                          </div>
+                          <label htmlFor="search" className="blind">
+                            검색상품 입력
+                          </label>
+                          <input
+                            value={productSearch}
+                            onChange={getProductData}
+                            id="search"
+                            type="text"
+                            placeholder="검색할 상품을 입력해주세요"
+                          />
+                        </div>
+
+                        <div className="btnBox">
+                          <Link to={'/additem'} className="addBtn">
+                            상품 등록하기
+                          </Link>
+                        </div>
+
+                        <div className="selectBox">
+                          <Link className={`select ${selectView ? "active" : ""}`} onClick={toggleSelect}>
+                            {sortOrder === 'latest' ? "최신순" : "좋아요순"}
+                          </Link>
+                          <ul className="viewList">
+                            <li>
+                              <Link onClick={(e) => handelSortChange(e, 'latest')}>
+                                최신순
+                              </Link>
+                            </li>
+                            <li>
+                              <Link onClick={(e) => handelSortChange(e, 'like')}>
+                                좋아요순
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )
+            }
+
           </div>
 
         </div>

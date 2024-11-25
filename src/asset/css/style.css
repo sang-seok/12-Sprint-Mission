@@ -881,3 +881,5 @@ p.title {
 .infoTitle {
   text-align: center;
 }
+
+.loadingText{margin: 150px 0 0; text-align: center; font-size: 26px; color: var(--blue);}
