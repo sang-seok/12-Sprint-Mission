@@ -210,19 +210,19 @@ export default function ProductList() {
                     </div>
 
                     <div className="selectBox">
-                      <a href="#" className={`select ${selectView ? "active" : ""}`} onClick={toggleSelect}>
+                      <Link className={`select ${selectView ? "active" : ""}`} onClick={toggleSelect}>
                         {sortOrder === 'latest' ? "최신순" : "좋아요순"}
-                      </a>
+                      </Link>
                       <ul className="viewList">
                         <li>
-                          <a href="#" onClick={(e) => handelSortChange(e, 'latest')}>
+                          <Link onClick={(e) => handelSortChange(e, 'latest')}>
                             최신순
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="#" onClick={(e) => handelSortChange(e, 'like')}>
+                          <Link onClick={(e) => handelSortChange(e, 'like')}>
                             좋아요순
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </div>
