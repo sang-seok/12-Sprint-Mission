@@ -4,14 +4,14 @@ export default function Footer() {
 
   return (
     <footer id="footer">
-      <div class="container">
-        <div class="footer">
+      <div className="container">
+        <div className="footer">
 
-          <span class="text">
+          <span className="text">
             ©codeit - 2024
           </span>
 
-          <ul class="footerLink">
+          <ul className="footerLink">
             <li>
               <Link to={"/privacy"}>
                 Privacy Policy
@@ -24,25 +24,25 @@ export default function Footer() {
             </li>
           </ul>
 
-          <ul class="snsLink">
+          <ul className="snsLink">
             <li>
-              <Link to={"https://www.facebook.com/"} class="faceBook">
-                <span class="blind">페이스북</span>
+              <Link to={"https://www.facebook.com/"} className="faceBook">
+                <span className="blind">페이스북</span>
               </Link>
             </li>
             <li>
-              <Link to={"https://x.com/"} class="twitter">
-                <span class="blind">트위터</span>
+              <Link to={"https://x.com/"} className="twitter">
+                <span className="blind">트위터</span>
               </Link>
             </li>
             <li>
-              <Link to={"https://www.youtube.com/"} class="youtube">
-                <span class="blind">유튜브</span>
+              <Link to={"https://www.youtube.com/"} className="youtube">
+                <span className="blind">유튜브</span>
               </Link>
             </li>
             <li>
-              <Link to={"https://www.instagram.com/"} class="insta">
-                <span class="blind">유튜브</span>
+              <Link to={"https://www.instagram.com/"} className="insta">
+                <span className="blind">유튜브</span>
               </Link>
             </li>
           </ul>
