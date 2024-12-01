@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 :root {
-
+  --gray04: #F3F4F6;
   --gray03: #4b5563;
   --gray02: #1f2937;
   --gray01: #9ca3af;
@@ -9,6 +9,14 @@
   --white02: #fcfcfc;
   --white01: #ffffff;
   --red: #f74747
+}
+
+/* 에러메세지 */
+.errorText {
+  margin: 22px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--red);
 }
 
 /* 공통-가운데영역 */
@@ -607,6 +615,10 @@ p.title {
 }
 
 /* 서브-상품페이지 */
+#sub.subProductReg {
+  background-color: var(--white01);
+}
+
 #sub {
   padding: 24px 0 58px;
   background-color: #fcfcfc;
@@ -617,6 +629,14 @@ p.title {
   font-size: 20px;
   font-weight: 700;
   line-height: 1.6;
+}
+
+#sub h4 {
+  margin: 10px 0 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray02);
+  line-height: 1.4;
 }
 
 #sub .cardList.bestCardBox li {
@@ -716,15 +736,15 @@ p.title {
   background-size: cover;
 }
 
-#sub .itemsBox .productBox {
+#sub .productListBox .productBox {
   margin-bottom: 49px;
 }
 
-#sub .itemsBox .productBox .product {
+#sub .productListBox .productBox .product {
   position: relative;
 }
 
-#sub .itemsBox .productBox:last-child {
+#sub .productListBox .productBox:last-child {
   margin-bottom: 0;
 }
 
@@ -882,4 +902,28 @@ p.title {
   text-align: center;
 }
 
-.loadingText{margin: 150px 0 0; text-align: center; font-size: 26px; color: var(--blue);}
+.loadingText {
+  margin: 150px 0 0;
+  text-align: center;
+  font-size: 26px;
+  color: var(--blue);
+}
+
+/* 상품등록 */
+.productRegWrap .productRegBox{position: relative;}
+.productRegWrap .LayoutBox{display: flex; gap: 0 24px;}
+.productRegWrap .productUploadeImg{position: relative; width: 282px; height: 282px; border-radius: 12px; overflow: hidden;}
+.productRegWrap .productUploadeImg img{display: block; width: 100%;}
+.productRegWrap .productUploadeImg .delBtn{position: absolute; top:12px; right:12px; width: 20px; height: 24px; background: url(/public/images/del_btn_icon.png)no-repeat center; background-size: cover;}
+
+/* 폼 */
+.formBox{margin: 0 0 32px;}
+.formBox .inputFileBox label{display: flex; align-items: center; justify-content: center; width: 282px; height: 282px; background-color: var(--gray04); border-radius: 12px; cursor: pointer;}
+.formBox .inputFileBox label span{position: relative; display: flex; flex-direction: column; align-items: center; gap: 15px 0;  color: var(--gray01); line-height: 1;}
+.formBox .inputFileBox label span::before{content: ''; width: 48px; height: 48px; background: url(/public/images/add_btn_icon.png)no-repeat center; background-size: cover;} 
+.formBox .inputTextBox input{padding: 20px 20px 20px 24px; width: 100%; border-radius: 12px; background-color: var(--gray04); font-size: 16px;}
+.formBox .inputTextBox input::placeholder{color: var(--gray01); font-size: 16px;}
+.formBox .textAreaBox textarea{padding: 20px 20px 20px 24px; width: 100%; height: 282px; border: 0; background-color: var(--gray04); font-family: 'pretendard', sans-serif; font-size: 16px; border-radius: 12px;}
+.formBox .textAreaBox textarea::placeholder{color: var(--gray01);}
+.productRegBox .addBtn{position: absolute; top:0; right:0; display: block; width: 74px; height: 42px; line-height: 42px; text-align: center; background-color: var(--blue); border-radius: 8px; color: #fff; color: var(--gray04); font-size: 16px;}
+.productRegBox .addBtn:disabled{background-color: var(--gray01); cursor: auto;}
