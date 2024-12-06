@@ -17,7 +17,7 @@ export default function ProductList() {
 
   useEffect(() => {
 
-    const allItem = async function () {
+    async function allItem() {
       try {
         let allItems = [];
         const totalPages = Math.ceil(175 / 10);
@@ -35,7 +35,7 @@ export default function ProductList() {
 
     };
 
-    const BestItem = async function () {
+    async function BestItem() {
       try {
         let allItems = [];
         const totalPages = Math.ceil(175 / 10);
@@ -68,7 +68,7 @@ export default function ProductList() {
     setFilterItem(filter);
   }, [productSearch, item]);
 
-  const sortItems = function (items) {
+  function sortItems(items) {
     if (!Array.isArray(items)) return [];
     if (sortOrder === 'latest') {
 
@@ -82,16 +82,16 @@ export default function ProductList() {
     return items;
   }
 
-  const getProductData = function (e) {
+  function getProductData(e) {
     setProductSearch(e.target.value);
   };
 
-  const toggleSelect = function (e) {
+  function toggleSelect(e) {
     e.preventDefault();
     setSelectView(!selectView);
   };
 
-  const handelSortChange = function (e, order) {
+  function handelSortChange(e, order) {
     e.preventDefault();
     setSortOrder(order);
     setSelectView(false);
@@ -102,7 +102,7 @@ export default function ProductList() {
       <Header />
       <main id="sub">
         <div className="contentBox">
-          <div className="itemsBox">
+          <div className="productListBox">
 
 
             {loading ? (
