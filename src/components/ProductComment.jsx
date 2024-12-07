@@ -6,7 +6,6 @@ export default function ProductComment({ productId }) {
   const [ProductComment, setProductComment] = useState([]);
   const limit = 10; // 페이지당 댓글 수 (기본값 예시)
   const [cursor, setCursor] = useState(null); // 다음 페이지를 위한 커서
-  const noImage = 'https://via.placeholder.com/222?text=No+Image';
 
   useEffect(() => {
 
