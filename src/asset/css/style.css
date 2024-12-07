@@ -44,7 +44,7 @@
 /* 공통-레이아웃 */
 main {
   margin-top: 70px;
-  min-height: 600px;
+  min-height: 1000px;
 }
 
 p.title {
@@ -208,7 +208,7 @@ p.title {
 
 #header nav .depth01 li h2 a {
   display: block;
-  padding: 0 15px;
+  padding: 24px 15px;
   font-size: 18px;
   font-weight: 700;
   color: var(--gray03);
@@ -272,8 +272,53 @@ p.title {
 }
   */
 
+@media (max-width: 1199px) {
+
+  #header nav .depth01 li h2 a {
+    padding: 25px 15px;
+    font-size: 16px;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  #header .logo h1 a img {
+    width: 120px;
+  }
+
+  #header .logo {
+    margin-right: 20px;
+  }
+
+  #header nav .depth01 li h2 a {
+    padding: 27px 10px;
+    font-size: 14px;
+  }
+
+}
+
+@media (max-width: 414px) {
+
+  #header .logo h1 a img {
+    width: 100px;
+  }
+
+  #header nav .depth01 li h2 a {
+    padding: 28px 8px;
+    font-size: 12px;
+  }
+
+  #header .logo {
+    margin-right: 10px;
+  }
+
+}
+
+
 /* 공통-푸터 */
 #footer {
+  position: relative;
   padding: 33px 0 0;
   height: 160px;
   background-color: #111827;
@@ -862,7 +907,7 @@ p.title {
   transform: translateY(-50%) rotate(-180deg);
 }
 
-.searchWrap .selectBox .select.active + .viewList {
+.searchWrap .selectBox .select.active+.viewList {
   opacity: 1;
   z-index: 99;
 }
@@ -1010,6 +1055,9 @@ p.title {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.addBtn {
   display: block;
   width: 74px;
   height: 42px;
@@ -1017,12 +1065,11 @@ p.title {
   text-align: center;
   background-color: var(--blue);
   border-radius: 8px;
-  color: #fff;
-  color: var(--gray04);
+  color: var(--white01);
   font-size: 16px;
 }
 
-.productRegBox .addBtn:disabled {
+.addBtn:disabled {
   background-color: var(--gray01);
   cursor: auto;
 }
@@ -1078,4 +1125,303 @@ p.title {
   background-color: var(--blue);
   color: var(--white01);
   border: 0;
+}
+
+/* 상세페이지 */
+.detail {
+  padding-bottom: 40px;
+  display: flex;
+  gap: 0 24px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.detail>.imgBox {
+  width: 486px;
+  height: 486px;
+  border-radius: 40PX;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+.detail>.imgBox img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail .textBox {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.detail .textBox .text {
+  margin-bottom: 16px;
+  display: block;
+  color: var(--gray03);
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.detail .textBox .productTop {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.detail .textBox .title {
+  margin-bottom: 16px;
+  color: var(--gray02);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.detail .textBox .price {
+  display: block;
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--gray02);
+}
+
+.detail .textBox .productIntroduction {
+  margin-bottom: 24px;
+}
+
+.detail .textBox .productIntroduction p {
+  color: var(--gray03);
+  line-height: 1.6;
+}
+
+.detail .textBox .productTag {
+  margin-bottom: 62px;
+}
+
+.detail .textBox .productTagList em {
+  padding: 5px 16px;
+  border-radius: 50px;
+  color: var(--gray02);
+  line-height: 1.6;
+  background-color: var(--gray04);
+  font-style: normal;
+}
+
+.detail .textBox .userBox {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 0 16px
+}
+
+.detail .textBox .userBox .imgBox {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.detail .textBox .userBox .imgBox img {
+  display: block;
+  width: 100%;
+}
+
+.detail .textBox .userBox .textBox .userId {
+  margin-bottom: 2px;
+  color: var(--gray03);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.detail .textBox .userBox .textBox .regDate {
+  color: var(--gray01);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.detail .textBox .likeBox {
+  padding: 6px 15px;
+  display: flex;
+  align-items: center;
+  gap: 0 7px;
+  border-radius: 50px;
+  border: 1px solid #E5E7EB;
+  background-color: var(--white01);
+}
+
+.detail .textBox .likeBox img {
+  margin-top: 2px;
+}
+
+.detail .textBox .likeBox span {
+  font-weight: 500;
+  color: #6B7280;
+  line-height: 1.6;
+}
+
+@media (max-width: 1199px) {
+
+  .detail {
+    padding-bottom: 32px;
+  }
+
+  .detail>.imgBox {
+    width: 340px;
+    height: 340px;
+  }
+
+  .detail .textBox .productTop {
+    margin-bottom: 16px;
+  }
+
+  .detail .textBox .productTag {
+    margin-bottom: 40px;
+  }
+
+  .detail .textBox .title {
+    margin-bottom: 8px;
+    font-size: 20px;
+  }
+
+  .detail .textBox .price {
+    font-size: 32px;
+  }
+
+  .detail .textBox .text {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .detail .textBox .likeBox {
+    padding: 2px 15px;
+  }
+
+  .detail .textBox .likeBox img {
+    width: 20px;
+    margin: 0;
+  }
+
+}
+
+@media (max-width: 576px) {
+
+  .detail {
+    padding-bottom: 24px;
+    flex-direction: column;
+  }
+
+  .detail>.imgBox {
+    margin-bottom: 16px;
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .detail .textBox .title {
+    font-size: 16px;
+  }
+
+  .detail .textBox .price {
+    font-size: 24px;
+  }
+
+}
+
+/* 문의하기 */
+.inquiryBox {
+  padding: 40px 0 0;
+}
+
+.inquiryBox .text {
+  display: block;
+  margin-bottom: 9px;
+  color: #111827;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.inquiryBox form textarea {
+  margin-bottom: 16px;
+  padding: 16px 24px;
+  width: 100%;
+  height: 104px;
+  overflow-y: auto;
+  background-color: var(--gray04);
+  border-radius: 12px;
+  border: 0;
+  font-size: 16px;
+  font-family: 'pretendard', sans-serif;
+}
+
+.inquiryBox form textarea::placeholder {
+  color: var(--gray01);
+}
+
+.inquiryBox form .btnBox {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* 댓글 */
+.inquiryInfoList .box .comment {
+  margin-bottom: 24px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--gray02);
+}
+
+.inquiryInfoList .box {
+  padding: 24px 0 12px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.inquiryInfoList .box .productInquiryInfo {
+  display: flex;
+  align-items: center;
+  gap: 0 8px;
+}
+
+.inquiryInfoList .box .productInquiryInfo .imgBox {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.inquiryInfoList .box .productInquiryInfo .imgBox img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.inquiryInfoList .box .productInquiryInfo .textBox .writer {
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: var(--gray03);
+  line-height: 1.5;
+}
+
+.inquiryInfoList .box .productInquiryInfo .textBox .time {
+  font-size: 12px;
+  color: var(--gray03);
+  line-height: 1.5;
+}
+
+.inquiryInfoList .noInquiry {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 1.6;
+  color: var(--gray01);
+}
+
+.inquiryInfoList .noInquiry::before {
+  content: '';
+  width: 196px;
+  height: 196px;
+  background: url(/public/images/noinquiry_img.svg)no-repeat center;
+  background-size: cover;
 }
