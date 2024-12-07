@@ -3,7 +3,7 @@ import ProductComment from "./ProductComment";
 
 export default function ProductInquiry({productId}) {
 
-  const [disabled, setDisabled] = useState('disabled');
+  const disabled = useState('disabled');
 
   return (
     <div className="inquiryBox">
