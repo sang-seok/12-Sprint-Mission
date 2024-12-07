@@ -1,15 +1,16 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/page/Home';
-import ProductReg from './components/page/ProductReg';
-import ProductList from './components/page/ProductList';
+import ProductListPage from './components/page/ProductListPage';
+import ProductRegPage from './components/page/ProductRegPage';
+
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/items' element={<ProductList />} />
-        <Route path='/additem' element={<ProductReg />} />
+        <Route path='/items' element={<ProductListPage />} />
+        <Route path='/additem' element={<ProductRegPage />} />
       </Routes>
     </BrowserRouter>
   );

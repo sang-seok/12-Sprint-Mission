@@ -737,6 +737,7 @@ p.title {
 }
 
 #sub .productListBox .productBox {
+  position: relative;
   margin-bottom: 49px;
 }
 
@@ -788,24 +789,23 @@ p.title {
   top: -9px;
   right: 0;
   height: 42px;
+  border-radius: 12px;
 }
 
 .searchWrap .searchBox {
+  position: relative;
   width: 325px;
+  display: flex;
 }
 
-.searchWrap .searchBox .searchBtnBox {
+.searchWrap .searchBox::after {
+  content: '';
   position: absolute;
-  top: 14px;
-  left: 20px;
-}
-
-.searchWrap .searchBox .searchBtnBox .searchBtn {
-  display: block;
+  top: 13px;
+  left: 17px;
   width: 15px;
   height: 15px;
-  background: url(/public/images/search_icon.svg)no-repeat center;
-  background-size: cover;
+  background: url(/public/images/search_icon.svg)no-repeat center center;
 }
 
 .searchWrap .searchBox input {
@@ -862,12 +862,13 @@ p.title {
   transform: translateY(-50%) rotate(-180deg);
 }
 
-.searchWrap .selectBox .select.active+.viewList {
+.searchWrap .selectBox .select.active + .viewList {
   opacity: 1;
-  z-index: 11;
+  z-index: 99;
 }
 
 .searchWrap .selectBox .viewList {
+  position: relative;
   opacity: 0;
   margin-top: 8px;
   border: 1px solid #E5E7EB;
@@ -875,6 +876,7 @@ p.title {
   overflow: hidden;
   z-index: -1;
   transition: all .3s;
+  background-color: var(--white01);
 }
 
 .searchWrap .selectBox .viewList li {
@@ -910,20 +912,170 @@ p.title {
 }
 
 /* 상품등록 */
-.productRegWrap .productRegBox{position: relative;}
-.productRegWrap .LayoutBox{display: flex; gap: 0 24px;}
-.productRegWrap .productUploadeImg{position: relative; width: 282px; height: 282px; border-radius: 12px; overflow: hidden;}
-.productRegWrap .productUploadeImg img{display: block; width: 100%;}
-.productRegWrap .productUploadeImg .delBtn{position: absolute; top:12px; right:12px; width: 20px; height: 24px; background: url(/public/images/del_btn_icon.png)no-repeat center; background-size: cover;}
+.productRegWrap .productRegBox {
+  position: relative;
+}
+
+.productRegWrap .LayoutBox {
+  display: flex;
+  gap: 0 24px;
+}
+
+.productRegWrap .productUploadeImg {
+  position: relative;
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.productRegWrap .productUploadeImg img {
+  display: block;
+  width: 100%;
+}
+
+.productRegWrap .productUploadeImg .delBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 20px;
+  height: 24px;
+  background: url(/public/images/del_btn_icon.png)no-repeat center;
+  background-size: cover;
+}
 
 /* 폼 */
-.formBox{margin: 0 0 32px;}
-.formBox .inputFileBox label{display: flex; align-items: center; justify-content: center; width: 282px; height: 282px; background-color: var(--gray04); border-radius: 12px; cursor: pointer;}
-.formBox .inputFileBox label span{position: relative; display: flex; flex-direction: column; align-items: center; gap: 15px 0;  color: var(--gray01); line-height: 1;}
-.formBox .inputFileBox label span::before{content: ''; width: 48px; height: 48px; background: url(/public/images/add_btn_icon.png)no-repeat center; background-size: cover;} 
-.formBox .inputTextBox input{padding: 20px 20px 20px 24px; width: 100%; border-radius: 12px; background-color: var(--gray04); font-size: 16px;}
-.formBox .inputTextBox input::placeholder{color: var(--gray01); font-size: 16px;}
-.formBox .textAreaBox textarea{padding: 20px 20px 20px 24px; width: 100%; height: 282px; border: 0; background-color: var(--gray04); font-family: 'pretendard', sans-serif; font-size: 16px; border-radius: 12px;}
-.formBox .textAreaBox textarea::placeholder{color: var(--gray01);}
-.productRegBox .addBtn{position: absolute; top:0; right:0; display: block; width: 74px; height: 42px; line-height: 42px; text-align: center; background-color: var(--blue); border-radius: 8px; color: #fff; color: var(--gray04); font-size: 16px;}
-.productRegBox .addBtn:disabled{background-color: var(--gray01); cursor: auto;}
+.formBox {
+  margin: 0 0 32px;
+}
+
+.formBox .inputFileBox label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 282px;
+  height: 282px;
+  background-color: var(--gray04);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.formBox .inputFileBox label span {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px 0;
+  color: var(--gray01);
+  line-height: 1;
+}
+
+.formBox .inputFileBox label span::before {
+  content: '';
+  width: 48px;
+  height: 48px;
+  background: url(/public/images/add_btn_icon.png)no-repeat center;
+  background-size: cover;
+}
+
+.formBox .inputTextBox input {
+  padding: 20px 20px 20px 24px;
+  width: 100%;
+  border-radius: 12px;
+  background-color: var(--gray04);
+  font-size: 16px;
+}
+
+.formBox .inputTextBox input::placeholder {
+  color: var(--gray01);
+  font-size: 16px;
+}
+
+.formBox .textAreaBox textarea {
+  padding: 20px 20px 20px 24px;
+  width: 100%;
+  height: 282px;
+  border: 0;
+  background-color: var(--gray04);
+  font-family: 'pretendard', sans-serif;
+  font-size: 16px;
+  border-radius: 12px;
+}
+
+.formBox .textAreaBox textarea::placeholder {
+  color: var(--gray01);
+}
+
+.productRegBox .addBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 74px;
+  height: 42px;
+  line-height: 42px;
+  text-align: center;
+  background-color: var(--blue);
+  border-radius: 8px;
+  color: #fff;
+  color: var(--gray04);
+  font-size: 16px;
+}
+
+.productRegBox .addBtn:disabled {
+  background-color: var(--gray01);
+  cursor: auto;
+}
+
+/* 페이지네이션 */
+.paginationBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0 4px;
+}
+
+.paginationBox .pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 4px;
+}
+
+.paginationBox .pageLink {
+  padding-top: 2px;
+}
+
+.paginationBox a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  color: #6B7280;
+  border: 1px solid #E5E7EB;
+  font-weight: 600;
+}
+
+.paginationBox .pageLinkPrev::before {
+  content: '';
+  width: 6px;
+  height: 10px;
+  background: url(/public/images/arrow_prev.svg)no-repeat center;
+}
+
+.paginationBox .pageLinkNext::before {
+  content: '';
+  width: 6px;
+  height: 10px;
+  background: url(/public/images/arrow_next.svg)no-repeat center;
+}
+
+.paginationBox .active {
+  background-color: var(--blue);
+  color: var(--white01);
+  border: 0;
+}
