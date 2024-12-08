@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Footer from "../section/Footer";
@@ -7,6 +7,7 @@ import ProductDetail from "../ProductDetail";
 import ProductInquiry from "../ProductInquiry";
 
 export default function ProductDetailPage() {
+
   const { productId } = useParams();
   const [productDetail, setProductDetail] = useState([]); // 상세 페이지 데이터 상태
 
@@ -27,6 +28,7 @@ export default function ProductDetailPage() {
   return (
     <>
       <Header />
+
       <main id="sub">
         <div className="contentBox">
           <div className="productDetailBox">
@@ -39,6 +41,12 @@ export default function ProductDetailPage() {
                 )}
 
                 <ProductInquiry productId={productId} />
+
+                <div className="btnBox">
+                  <Link to="/items" className="comBtn">
+                    <span>목록으로 돌아가기</span>
+                  </Link>
+                </div>
 
               </div>
             </div>

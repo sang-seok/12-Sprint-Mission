@@ -34,9 +34,17 @@ export default function ProductDetail({ productDetail }) {
             상품태그
           </span>
           <div className="productTagList">
-            <em>
-              #{productDetail.tags}
-            </em>
+
+            {
+              (productDetail.tags || []).map((tag, i) => {
+                return (
+                  <em key={i}>
+                    #{tag}
+                  </em>
+                )
+              })
+            }
+
           </div>
         </div>
 
@@ -46,7 +54,7 @@ export default function ProductDetail({ productDetail }) {
           </div>
           <div className="textBox">
             <p className="userId">
-              {productDetail.ownerId}
+              {productDetail.ownerNickname}
             </p>
             <p className="regDate">
               {new Date(productDetail.createdAt).toLocaleDateString()}

@@ -44,7 +44,6 @@
 /* 공통-레이아웃 */
 main {
   margin-top: 70px;
-  min-height: 1000px;
 }
 
 p.title {
@@ -665,7 +664,8 @@ p.title {
 }
 
 #sub {
-  padding: 24px 0 58px;
+  padding: 24px 0 100px;
+  min-height: 1000px;
   background-color: #fcfcfc;
 }
 
@@ -1199,6 +1199,12 @@ p.title {
   margin-bottom: 62px;
 }
 
+.detail .textBox .productTagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .detail .textBox .productTagList em {
   padding: 5px 16px;
   border-radius: 50px;
@@ -1330,6 +1336,7 @@ p.title {
 /* 문의하기 */
 .inquiryBox {
   padding: 40px 0 0;
+  margin-bottom: 100px;
 }
 
 .inquiryBox .text {
@@ -1371,6 +1378,7 @@ p.title {
 }
 
 .inquiryInfoList .box {
+  position: relative;
   padding: 24px 0 12px;
   border-bottom: 1px solid #E5E7EB;
 }
@@ -1379,6 +1387,53 @@ p.title {
   display: flex;
   align-items: center;
   gap: 0 8px;
+}
+
+.inquiryInfoList .box .selectBox {
+  position: absolute;
+  top: 29px;
+  right: 10px;
+}
+
+.inquiryInfoList .box .selectBox .selectBtn {
+  display: block;
+  width: 3px;
+  height: 13px;
+  background: url(/public/images/setting_icon.svg)no-repeat center;
+}
+
+.inquiryInfoList .box .selectBox .selectBtn.active+.view {
+  opacity: 1;
+  z-index: 999;
+}
+
+.inquiryInfoList .box .selectBox .view {
+  opacity: 0;
+  position: absolute;
+  top: 29px;
+  right: -10px;
+  width: 139px;
+  height: 92px;
+  border-radius: 8px;
+  border: 1px solid #D1D5DB;
+  background-color: var(--white01);
+  overflow: hidden;
+  z-index: -999;
+  transition: all .3s;
+}
+
+.inquiryInfoList .box .selectBox .view .select {
+  display: block;
+  width: 100%;
+  height: 46px;
+  color: #6B7280;
+  text-align: center;
+  background-color: var(--white01);
+  font-size: 14px;
+}
+
+.inquiryInfoList .box .selectBox .view .select:hover {
+  font-weight: 500;
 }
 
 .inquiryInfoList .box .productInquiryInfo .imgBox {
@@ -1424,4 +1479,64 @@ p.title {
   height: 196px;
   background: url(/public/images/noinquiry_img.svg)no-repeat center;
   background-size: cover;
+}
+
+@media (max-width: 1199px) {
+
+  .inquiryInfoList .box .selectBox .view {
+    width: 102px;
+  }
+
+}
+
+/* 공통-버튼 */
+.productDetailBox .btnBox {
+  display: flex;
+  justify-content: center;
+}
+
+.productDetailBox .btnBox a {
+  position: relative;
+  padding: 11px 40px;
+  display: block;
+  border-radius: 50px;
+  background-color: var(--gray01);
+  overflow: hidden;
+}
+
+.productDetailBox .btnBox a span {
+  display: flex;
+  align-items: center;
+  gap: 0 8px;
+  position: relative;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gray04);
+  line-height: 1.4;
+}
+
+.productDetailBox .btnBox a span::after {
+  content: '';
+  margin-top: 3px;
+  width: 20px;
+  height: 18px;
+  background: url(/public/images/return_icon.svg)no-repeat center;
+}
+
+.productDetailBox .btnBox a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  bottom: 0;
+  transition: all .3s;
+  background-color: var(--blue);
+  border-radius: 50px;
+
+}
+
+.productDetailBox .btnBox a:hover::before {
+  width: 100%;
+
 }
