@@ -9,7 +9,7 @@ export default function ProductBestList() {
 
   useEffect(() => {
 
-    async function BestItem() {
+    async function bestItems() {
       try {
         let allItems = [];
         const totalPages = Math.ceil(175 / 10);
@@ -29,7 +29,7 @@ export default function ProductBestList() {
       }
     };
 
-    BestItem()
+    bestItems()
 
   }, [])
 
