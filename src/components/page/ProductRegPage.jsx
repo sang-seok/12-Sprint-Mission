@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "../section/Header";
 
-export default function ProductReg() {
+export default function ProductRegPage() {
 
   //이미지 상태관리
   const [productImg, setProductImg] = useState(null);
