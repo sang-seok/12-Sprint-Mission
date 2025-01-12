@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
+import style from "./Pagination.module.css"
 
-export default function Pagination({ currentPage, totalPage, setPage }) {
+interface PaginationProps{
+
+  currentPage: number;
+  totalPage: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+
+}
+
+export default function Pagination({ currentPage, totalPage, setPage }: PaginationProps) {
 
   const pageNumber = [];
   for (let i = 1; i <= totalPage; i++) {
@@ -27,25 +36,25 @@ export default function Pagination({ currentPage, totalPage, setPage }) {
   };
 
   // 페이지 번호 클릭 시
-  const handlePageChange = (page) => {
+  const handlePageChange = (page:number) => {
     setPage(page);
   };
 
   return (
 
-    <div class="paginationBox">
-      <Link to="#" class="pageLink pageLinkPrev" onClick={handlePrev}>
-        <span class="blind">1페이지 뒤로 이동</span>
+    <div className={style.paginationBox}>
+      <Link to="#" className={`${style.pageLink} ${style.pageLinkPrev}`} onClick={handlePrev}>
+        <span className="blind">1페이지 뒤로 이동</span>
       </Link>
 
-      <div class="pagination">
+      <div className={style.pagination}>
         {
           // startPage부터 endPage까지 페이지 버튼 생성
           Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i).map((page) => (
             <Link
               key={page}
               to="#"
-              className={`pageLink ${currentPage === page ? 'active' : ''}`}
+              className={`${style.pageLink} ${currentPage === page ? `${style.active}` : ''}`}
               onClick={() => handlePageChange(page)}
             >
               {page}
@@ -54,8 +63,8 @@ export default function Pagination({ currentPage, totalPage, setPage }) {
         }
       </div>
 
-      <Link to="#" class="pageLink pageLinkNext" onClick={handleNext}>
-        <span class="blind">1페이지 앞으로 이동</span>
+      <Link to="#" className={`${style.pageLink} ${style.pageLinkNext}`} onClick={handleNext}>
+        <span className="blind">1페이지 앞으로 이동</span>
       </Link>
     </div>
 
