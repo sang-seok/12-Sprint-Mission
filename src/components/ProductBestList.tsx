@@ -45,7 +45,7 @@ export default function ProductBestList() {
             <li key={i}>
               <Link to={`${data.id}`}>
                 <div className={style.imgBox}>
-                  <img src={Array.isArray(data.images) && data.images.length > 0 ? data.images[0] : noImage} />
+                  <img src={Array.isArray(data.images) && data.images.length > 0 ? data.images[0] : noImage} alt={data.name} />
                 </div>
 
                 <div className={style.textBox}>
