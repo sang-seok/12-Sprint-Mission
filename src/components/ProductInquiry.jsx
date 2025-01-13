@@ -1,9 +1,5 @@
-import { useState } from "react"
-import ProductComment from "./ProductComment";
 
-export default function ProductInquiry({ productId }) {
-
-  const disabled = useState('disabled');
+export default function ProductInquiry() {
 
   return (
     <div className="inquiryBox">
@@ -22,17 +18,12 @@ export default function ProductInquiry({ productId }) {
 " />
 
         <div className="btnBox">
-          <button
-            class="addBtn"
-            disabled={disabled}>
+          <button class="addBtn" >
             등록
           </button>
         </div>
 
       </form>
-
-      <ProductComment productId={productId} />
-
     </div>
   )
 
